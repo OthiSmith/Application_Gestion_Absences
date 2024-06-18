@@ -1,0 +1,114 @@
+{% extends "GestionHeuresAbsences/base.html" %}
+{% block page_content %}
+<div class="container-fluid">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>Ajouter un étudiant</strong></h2>
+                    <ul class="header-dropdown">
+                        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="javascript:void(0);">Action</a></li>
+                                <li><a href="javascript:void(0);">Another action</a></li>
+                                <li><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </li>
+                        <li class="remove">
+                            <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <form action="{% url 'GestionHeuresAbsences:eleve_create' %}" method="post">
+                        {% csrf_token %}
+                        <div class="row clearfix">
+                            <div class="col-lg-3 col-md-3 col-sm-3 form-control-label">
+                                <label for="email_address_2">Matricule de l'étudiant</label>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    {{form.matricule_E}}
+                                    {% for error in form.matricule_E.errors %}
+                                        <div class = "invalid-text small mt-1">
+                                            {{ error|escape }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row clearfix">
+                            <div class="col-lg-3 col-md-3 col-sm-3 form-control-label">
+                                <label for="email_address_2">Nom de l'étudiant</label>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    {{form.nom_E}}
+                                    {% for error in form.nom_E.errors %}
+                                        <div class = "invalid-text small mt-1">
+                                            {{ error|escape }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row clearfix">
+                            <div class="col-lg-3 col-md-3 col-sm-3 form-control-label">
+                                <label for="email_address_2">Prénoms de l'étudiant</label>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    {{form.prenoms_E}}
+                                    {% for error in form.prenoms_E.errors %}
+                                        <div class = "invalid-text small mt-1">
+                                            {{ error|escape }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row clearfix">
+                            <div class="col-lg-3 col-md-3 col-sm-3 form-control-label">
+                                <label for="email_address_2">Sexe de l'étudiant</label>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    {{form.sexe_E}}
+                                    {% for error in form.sexe_E.errors %}
+                                        <div class = "invalid-text small mt-1">
+                                            {{ error|escape }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row clearfix">
+                            <div class="col-lg-3 col-md-3 col-sm-3 form-control-label">
+                                <label for="email_address_2">Classe de l'étudiant</label>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    {{form.classe}}
+                                    {% for error in form.classe.errors %}
+                                        <div class = "invalid-text small mt-1">
+                                            {{ error|escape }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-lg-9 col-md-8 col-sm-8">
+                                <div class="form-group  float-right">
+                                    <a href="" class="btn btn-sm btn-info">Annuler</a>
+                                    <button type="submit" class="btn btn-sm btn-info">Enregister</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock page_content %}

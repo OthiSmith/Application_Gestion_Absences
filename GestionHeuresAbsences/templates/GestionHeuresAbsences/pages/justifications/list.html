@@ -1,0 +1,69 @@
+{% extends "GestionHeuresAbsences/base.html" %}
+{% block page_content %}
+<div class="container-fluid">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>Liste des Justifications des Etudiants</strong></h2>
+                    <ul class="header-dropdown">
+                        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="javascript:void(0);">Action</a></li>
+                                <li><a href="javascript:void(0);">Another action</a></li>
+                                <li><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </li>
+                        <li class="remove">
+                            <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <div class="row mb-2">
+                        <div class="col-sm-12">
+                            <a href="{% url 'GestionHeuresAbsences:justification_create'%}" class="btn btn-sm btn-info">
+                                <i class="zmdi zmdi-plus"></i> Ajouter des Justifications</a>
+                        </div>
+                    </div>
+                    <div class="row table-responsive ">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr class="table-primary">
+                                    <th>Date de la justification </th>
+                                    <th>Nombre d'heures justifiées</th>
+                                    <th>Motifs</th>
+                                    <th>Etudiant(e)</th>
+                                    <th class="float-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for justification in justifications %}
+                                  <tr>
+                                      <td>{{justification.date_J}}</td>
+                                      <td>{{justification.duree_J}}</td>
+                                      <td>{{justification.Motifs}}</td>
+                                      <td>{{justification.eleve}}</td>
+                                      <td class="float-right">
+                                          <a href="{% url 'GestionHeuresAbsences:justification_update' id=justification.id %}" class="btn btn-warning btn-sm">Mod</a>
+                                          <a href="{% url 'GestionHeuresAbsences:justification_delete' id=justification.id %}" class="btn btn-danger btn-sm">Supp</a>
+                                      </td>
+                                      <td>
+                                          <ul>
+                                              {% for eleve in justification.eleve.all %}
+                                                    <li>{{eleve}}</li>
+                                              {% endfor %}
+                                          </ul>
+                                      </td>
+
+                                  </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock page_content %}

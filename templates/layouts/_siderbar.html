@@ -1,0 +1,21 @@
+{% load static %}
+<!-- Left Sidebar -->
+<aside id="leftsidebar" class="sidebar">
+    <div class="menu">
+        <ul class="list">
+            <li>
+                <div class="user-info">
+                    <div class="image"><a href="profile.html"><img src="{% static 'assets/images/télécharger (3).jpeg' %}" alt="User"></a></div>
+                    <div class="detail">
+                        <h4>ENSEA</h4>
+                        <small>Plus qu'une école, un esprit</small>
+                    </div>
+                </div>
+            </li>
+            <li><a href="{% url 'GestionHeuresAbsences:eleve_list' %}" ><i class="zmdi zmdi-chart"></i><span>Etudiants</span></a> </li>
+             <li><a href="{% url 'GestionHeuresAbsences:absence_list' %}" ><i class="zmdi zmdi-money-box"></i><span>Absences</span></a> </li>
+            <li><a href="{% url 'GestionHeuresAbsences:justification_list' %}" ><i class="zmdi zmdi-account-o"></i><span>Justifications</span></a> </li>
+            <li><a href="{% url 'GestionHeuresAbsences:login' %}" ><i class="zmdi zmdi-account-o"></i><span>Deconnexion</span></a> </li>
+        </ul>
+    </div>
+</aside>
